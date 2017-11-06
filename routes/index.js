@@ -25,7 +25,7 @@ ${req.body.message}
 
     TG.sendMessage(process.env.USER_ID, message, {parse_mode: 'Markdown'});
 
-    res.send('success');
+    res.send({message: 'success'});
 });
 
 module.exports = router;
