@@ -9,10 +9,10 @@ const emailRegExp =
 router.post('/contact', (req, res) => {
     console.log(req);
     if (!req.body.name || !req.body.email || !req.body.message) {
-        return res.send('Please fill out all fields.');
+        return res.send({message: 'Please fill out all fields.'});
     }
     if (!emailRegExp.test(req.body.email)) {
-        return res.send('Invalid email address');
+        return res.send({message: 'Invalid email address'});
     }
 
     const message = 
