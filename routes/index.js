@@ -7,7 +7,6 @@ const emailRegExp =
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 router.post('/contact', (req, res) => {
-    console.log(req);
     if (!req.body.name || !req.body.email || !req.body.message) {
         return res.send({message: 'Please fill out all fields.'});
     }
