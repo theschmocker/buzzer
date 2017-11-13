@@ -16,7 +16,10 @@ app.disable('x-powered-by');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+    origin: 'https://jacobschmocker.com',
+    optionsSuccessStatus: 200
+}));
 
 const reqLimiter = new RateLimit({
     windowMs: 5*60*1000, // 5 minutes
