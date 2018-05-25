@@ -10,7 +10,7 @@ router.post('/contact', (req, res) => {
     if (!req.body.name || !req.body.email || !req.body.message) {
         return res.send({message: 'Please fill out all fields.'});
     }
-    if (!isEmail(req.body.email)) {
+    if (!isEmail.validate(req.body.email)) {
         return res.send({message: 'Invalid email address'});
     }
 
