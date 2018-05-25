@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Telegram } = require('telegraf');
-const isEmail = require('isemail');
+const { isNotEmail } = require('sane-email-validation');
 
 const TG = new Telegram(process.env.BOT_TOKEN);
 
@@ -10,7 +10,7 @@ router.post('/contact', (req, res) => {
     if (!req.body.name || !req.body.email || !req.body.message) {
         return res.send({message: 'Please fill out all fields.'});
     }
-    if (!isEmail.validate(req.body.email)) {
+    if (isNotEmail(req.body.email)) {
         return res.send({message: 'Invalid email address'});
     }
 

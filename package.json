@@ -12,7 +12,7 @@
     "dotenv": "^4.0.0",
     "express": "~4.15.2",
     "express-rate-limit": "^2.9.0",
-    "isemail": "^3.1.2",
+    "sane-email-validation": "^1.1.0",
     "telegraf": "^3.14.0"
   }
 }
