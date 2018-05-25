@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const { Telegram } = require('telegraf');
+const isEmail = require('isemail');
+
 const TG = new Telegram(process.env.BOT_TOKEN);
 
-const emailRegExp =
-    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 router.post('/contact', (req, res) => {
     if (!req.body.name || !req.body.email || !req.body.message) {
         return res.send({message: 'Please fill out all fields.'});
     }
-    if (!emailRegExp.test(req.body.email)) {
+    if (!isEmail(req.body.email)) {
         return res.send({message: 'Invalid email address'});
     }
 
